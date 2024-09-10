@@ -1,0 +1,12 @@
+mixin fileInput(id="", placeholder="Upload a file",type="common",inputClass="")
+    if(type == "common")
+        .ui.file.input
+            input(type="file", id=id, placeholder=placeholder class=inputClass + " ui file" )
+    if(type == "invisible")
+        input(id=id, type='file', class=' ui invisible file input ' + inputClass)
+        label.ui.placeholder.segment(for=id)
+            .ui.icon.header
+                i.upload.icon
+                |     !{placeholder}
+    input(style="display:none;" id="uploaded__"+id, type="text")
+

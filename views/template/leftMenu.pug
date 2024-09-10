@@ -1,0 +1,43 @@
+if template && template.leftMenu
+    .ui.vertical.menu.sidebar.leftMenuMenu
+        if  template.leftMenu.search
+        .item
+            div(class='ui search' id=template.leftMenu.searchId||'left_menu')
+                .ui.icon.input
+                    input.prompt(type='text' placeholder=template.leftMenusearchPlaceholder || 'Search ...')
+                    i.search.icon
+                .results
+        each item  in  template.leftMenu.items
+            if item.type =='parent'
+                .item=item.title
+                    .menu
+                        each val in item.items
+                            if val.active
+                                a(class=' active item '+(val.actionClass||''), href=val.link || '#')
+                                    i(class=' icon '+ val.icon)
+                                    | !{val.title || '' }
+                            else     
+                                a(class=' item '+(val.actionClass||''), href=val.link || '#')
+                                    i(class=' icon '+ val.icon)
+                                    | !{val.title || '' }
+            if item.type =='link_icon'  
+                if item.active
+                    a(class=' active item '+(item.actionClass||''), href=item.link || '#')
+                        i(class='layout icon ' + item.icon )
+                        |  !{item.title}   
+                else 
+                    a(class='  item '+(item.actionClass||''), href=item.link || '#')
+                        i(class='layout icon ' + item.icon )
+                        |  !{item.title}   
+            if item.type =='divider'
+                .divider
+            if item.type =='link'  
+                if item.active
+                    a(href=item.link|| "#" class='item  active '+ (item.actionClass ? item.actionClass :'' ))
+                        i(class=' icon '+ item.icon)
+                        | !{item.title || ''} 
+                else
+                    a(href=item.link|| "#" class='item '+ (item.actionClass ? item.actionClass :'' ))
+                        i(class=' icon '+ item.icon)
+                        | !{item.title || ''}            
+

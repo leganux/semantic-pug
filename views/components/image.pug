@@ -1,0 +1,39 @@
+mixin image(url='',special="none",id='',link='',imageClass='',style='')
+    if link && link !== ''
+        if special == 'none'
+            a(href=link)
+                img(class="ui image " + imageClass src=url, id:id, style=style)
+        if special == 'avatar'
+            a(href=link)
+                img(class="ui avatar image " + imageClass src=url, id:id, style=style)
+        if special == 'bordered'
+            a(href=link)
+                img(class="ui bordered image " + imageClass src=url, id:id, style=style )
+        if special == 'fluid'
+            a(href=link)
+                img(class="ui fluid image " + imageClass src=url, id:id, style=style)
+        if special == 'rounded'
+            a(href=link)
+                img(class="ui rounded image " + imageClass src=url, id:id, style=style)
+        if special == 'circular'
+            a(href=link)
+                img(class="ui circular image " + imageClass src=url, id:id, style=style)
+        if special == 'centered'
+            a(href=link)
+                img(class="ui circular image " + imageClass src=url, id:id, style=style)
+    else
+        if special == 'none'
+            img(class="ui image " + imageClass src=url, id:id, style=style)
+        if special == 'avatar'
+            img(class="ui avatar image " + imageClass src=url, id:id, style=style)
+        if special == 'bordered'
+            img(class="ui bordered image " + imageClass src=url, id:id, style=style )
+        if special == 'fluid'
+            img(class="ui fluid image " + imageClass src=url, id:id, style=style)
+        if special == 'rounded'
+            img(class="ui rounded image " + imageClass src=url, id:id, style=style)
+        if special == 'circular'
+            img(class="ui circular image " + imageClass src=url, id:id, style=style)
+        if special == 'centered'
+            img(class="ui circular image " + imageClass src=url, id:id, style=style)
+

@@ -1,0 +1,84 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Mi Página con Fomantic UI
+        link(rel="stylesheet" type="text/css" href="semantic/dist/semantic.css")
+        script(src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous")
+    body
+        include components/button
+        include components/aButton
+        include components/emoji
+        include components/flag
+        include components/header
+        include components/icon
+        include components/image
+        include components/fileInput
+        include components/input
+
+
+        include template/navbar
+        include template/leftMenu
+
+        br
+        br
+        br
+        br
+        .ui.main.container
+            .ui.segment
+                - let buttons = ['default',"primary","secondary","positive basic"," negative","pink","purple","yellow"]
+                each val in buttons
+                    +button(val, 'Click Me!', "code" + val.replaceAll(' ', '_'))
+                br
+                br
+                each val in buttons
+                    +abutton(val, 'Click Me!', "https://leganux.com","_code" + val.replaceAll(' ', '_'))
+                br
+                br
+                +emoji('cupid')
+                br
+                +flag('mx')
+                br
+                +header('h1',"Hola","pink")
+                +header('h2',"Hola")
+                +header('h3',"Hola","green")
+                +header('h4',"Hola")
+                +header('h5',"Hola","red")
+                +icon('user')
+                br
+                +image('https://leganux.com/cdn/components2/images/circullogo.png',undefined,undefined,undefined,"small")
+                +fileInput('upload',"Upload something", "invisible")
+                +input("datetime",'date',"elemento_input",undefined,"Date",{
+                    rightLabelLeftIcon: {
+                        icon: "edit",
+                        label: "edit"
+                    }
+                })
+                +textarea("text","textarea_1",undefined,"Text here...",{icon: "edit"})
+                +select("selector","selector1",undefined,"Escoja 1",[
+                    {
+                        value: -1,
+                        text: "no valido"
+                    },
+                    {
+                        value: 0,
+                        text: "M"
+                    }, {
+                        value: 1,
+                        text: "F"
+                    }
+                ])
+
+                .ui.raised.segment
+                    .ui.top.attached.label HTML
+                    p
+
+
+
+
+
+
+
+        script(src="semantic/dist/semantic.js")
+        script(src="semantic/dist/start.js")

@@ -1,0 +1,44 @@
+mixin input(label="",type="text", id="", inputClass="",placeholder="", options )
+    label=label
+    if !options
+        .ui.input.fluid
+            input(type=type, id=id, class=inputClass, placeholder=placeholder)
+    if options.leftIcon
+        div(class=" fluid ui left icon input")
+            input(type=type, id=id, class=inputClass, placeholder=placeholder)
+            i(class="icon " + options.leftIcon)
+    if options.rightIcon
+        div(class=" fluid ui  icon input")
+            input(type=type, id=id, class=inputClass, placeholder=placeholder)
+            i(class="icon " + options.rightIcon)
+    if options.leftLabel
+        div(class=" fluid ui labeled input")
+            .ui.label=options.leftLabel
+            input(type=type, id=id, class=inputClass, placeholder=placeholder)
+    if options.rightLabel
+        div(class=" fluid ui right labeled input")
+            input(type=type, id=id, class=inputClass, placeholder=placeholder)
+            .ui.label=options.leftLabel
+    if options.rightLabelLeftIcon
+        div(class=" fluid ui right labeled left icon input")
+            i(class="icon " + options.rightLabelLeftIcon.icon)
+            input(type=type, id=id, class=inputClass, placeholder=placeholder)
+            .ui.label.tag=options.rightLabelLeftIcon.label
+
+mixin textarea(label="", id="", inputClass="",placeholder="", options )
+    label=label
+    .ui.icon.input.fluid
+        textarea(rows=5 id=id, class=inputClass, style="width:100%" placeholder=placeholder)
+        if options
+            i(class=" icon " + options.icon || '')
+mixin select(label="", id="", inputClass="",placeholder="",items )
+    label=label
+    .ui.labeled.input.fluid
+        .ui.basic.label=placeholder
+        select(id=id, class=inputClass+"  ui selection dropdown " )
+            if items
+                each value in items
+                    option(value=value.value)=value.text
+
+
+

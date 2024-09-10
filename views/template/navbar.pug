@@ -1,0 +1,53 @@
+if template && template.navbar
+  .ui.menu.inverted.fixed
+    if template.navbar.leftMenu 
+      .item 
+        i.icon.hamburger.leftMenu
+    a.header.item(href=template.navbar.logoLink || '#')
+      if template.navbar.showLogo
+        img.ui.fluid.image(style=" max-width:"+template.navbar.logoWidth+"; max-height:"+template.navbar.logoHeight+";  "  src=template.navbar.logo)
+        | &nbsp;
+      if template.navbar.showTitle
+        | !{template.navbar.title}
+
+
+    if template.navbar.search
+      .center.menu
+        .item
+          .ui.transparent.inverted.icon.input.search(id=template.navbar.searchId )
+            i.search.icon
+            input.prompt(type="text", placeholder=template.navbar.searchPlaceholder || "Search")
+            .results
+    .right.menu
+      each item in  template.navbar.items
+        if item.type =='dropdown'
+          .ui.dropdown.item(tabindex="0")
+            | !{item.title || "Submenu"}
+            i.dropdown.icon
+            .menu(tabindex="-1")
+              each val in item.items 
+                if val.active
+
+                  a(href=val.link|| "#" class='item  active '+ (val.actionClass ? val.actionClass :'' ))
+                    i(class=' icon '+ val.icon)
+                    | !{val.title || '' }
+                else
+                  a(href=val.link|| "#" class='item '+ (val.actionClass ? val.actionClass :'' ))  
+                    i(class=' icon '+ val.icon)
+                    | !{val.title || ''}
+
+        if item.type =='divider'
+          .divider
+        if item.type =='link'  
+          if item.active
+            a(href=item.link|| "#" class='item  active '+ (item.actionClass ? item.actionClass :'' ))
+              i(class=' icon '+ item.icon)
+              | !{item.title || ''} 
+          else
+            a(href=item.link|| "#" class='item '+ (item.actionClass ? item.actionClass :'' ))
+              i(class=' icon '+ item.icon)
+              | !{item.title || ''} 
+
+
+
+

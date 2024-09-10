@@ -1,0 +1,11 @@
+mixin header( size="h1",text,classHeader,id)
+    if size == 'h1'
+        h1(class=classHeader + " ui header ", id=id,)=text
+    if size == 'h2'
+        h2(class=classHeader + " ui header ", id=id,)=text
+    if size == 'h3'
+        h3(class=classHeader + " ui header ", id=id,)=text
+    if size == 'h4'
+        h4(class=classHeader + " ui header ", id=id,)=text
+    if size == 'h5'
+        h5(class=classHeader + " ui header ", id=id,)=text
