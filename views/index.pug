@@ -16,6 +16,7 @@ html(lang="es")
         include components/image
         include components/fileInput
         include components/input
+        include components/treeFolder
 
 
         include template/navbar
@@ -67,6 +68,31 @@ html(lang="es")
                     }, {
                         value: 1,
                         text: "F"
+                    }
+                ])
+
+                +treeFolder([
+                    {
+                        type:'folder',
+                        name:"one one",
+                        description:"abc",
+                        elements:[{
+
+                            type:"folder",
+                            name: "one two",
+                            description: "abc",
+                            link:"https://leganux.com"
+
+
+                        },{
+
+                            type:"fila",
+                            name: "one 3",
+                            description: "bbc",
+                            link:"https://leganux.com"
+
+
+                        }]
                     }
                 ])
 

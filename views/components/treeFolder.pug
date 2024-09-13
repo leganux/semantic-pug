@@ -1,0 +1,68 @@
+mixin treeFolder(elements)
+    if elements && Array.isArray(elements)
+        .ui.list
+            each value in elements
+                if(value.type == 'folder')
+                    a.item(href=value.link || '#', class=value.class || '', id=value.id || '')
+                        i.folder.icon
+                        .content
+                            .header=value.title
+                            .description=value.description
+                            if(value.elements)
+                                .list
+                                    each value2 in value.elements
+                                        if(value2.type == 'folder')
+                                            a.item(href=value2.link || '#', class=value2.class || '', id=value2.id || '')
+                                                i.folder.icon
+                                                .content
+                                                    .header=value2.title
+                                                    .description=value2.description
+                                                    if(value2.elements)
+                                                        .list
+                                                            each value3 in value2.elements
+                                                                if(value3.type == 'folder')
+                                                                    a.item(href=value3.link || '#', class=value3.class || '', id=value3.id || '')
+                                                                        i.folder.icon
+                                                                        .content
+                                                                            .header=value3.title
+                                                                            .description=value3.description
+                                                                            if(value3.elements)
+                                                                                .list
+                                                                                    each value4 in value3.elements
+                                                                                        if(value4.type == 'folder')
+                                                                                            a.item(href=value4.link || '#', class=value4.class || '', id=value4.id || '')
+                                                                                                i.folder.icon
+                                                                                                .content
+                                                                                                    .header=value4.title
+                                                                                                    .description=value4.description
+
+                                                                                        else
+                                                                                            a.item(href=value4.link || '#', class=value4.class || '', id=value4.id || '')
+                                                                                                i.file.icon
+                                                                                                .content
+                                                                                                    .header=value4.title
+                                                                                                    .description=value4.description
+
+                                                                else
+                                                                    a.item(href=valu3.link || '#', class=value3.class || '', id=value3.id || '')
+                                                                        i.file.icon
+                                                                        .content
+                                                                            .header=value3.title
+                                                                            .description=value3.description
+
+                                        else
+                                            a.item(href=value2.link || '#', class=value2.class || '', id=value2.id || '')
+                                                i.file.icon
+                                                .content
+                                                    .header=value2.title
+                                                    .description=value2.description
+
+                else
+                    a.item(href=value.link || '#', class=value.class || '', id=value.id || '')
+                        i.file.icon
+                        .content
+                            .header=value.title
+                            .description=value.description
+
+
+
